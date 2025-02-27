@@ -11,7 +11,7 @@ This group project was completed as part of the CG2028 Computer Organisation cou
 
 ## Project Overview
 
-A smart parking system is implemented in a multi-story car park. The car park has F floors and S parking sections on each floor. The system tracks the cars parked in the parking sections in real-time. At the start of each day, the system records the number of cars parked on each floor. Throughout the day, cars enter the car park from time to time. The cars only exit the car park at the end of a day. The objective of this assignment is to develop a system that updates the cars parked at the end of the day, considering the initial state, cars entering, and cars exiting.
+A smart parking system is implemented in a multi-story car park. The car park has `F` floors and `S` parking sections on each floor. The system tracks the cars parked in the parking sections in real-time. At the start of each day, the system records the number of cars parked on each floor. Throughout the day, cars enter the car park from time to time. The cars only exit the car park at the end of a day. The objective of this assignment is to develop a system that updates the cars parked at the end of the day, considering the initial state, cars entering, and cars exiting.
 
 ![image](https://github.com/user-attachments/assets/7caa31c7-2ac2-4231-bc7e-7c35b6d5483f)
 
@@ -21,7 +21,7 @@ To update the cars parked, two rules need to be followed:
 
 1. The maximum number of cars that can park in each section is 12.
 
-1. Cars entering the car park are assigned to sections floor by floor, starting from the first section on the first floor (building[0][0]). When a section reaches its maximum capacity of 12, incoming cars are directed to the next section on the same floor.
+1. Cars entering the car park are assigned to sections floor by floor, starting from the first section on the first floor (`building[0][0]`). When a section reaches its maximum capacity of 12, incoming cars are directed to the next section on the same floor.
 
 Therefore, with the given numbers for this example and `SECTION_MAX = 12`, the expected number of cars parked at the end of the day will be `{{11, 10}, {10, 8}, {5, 4}}`.
 
