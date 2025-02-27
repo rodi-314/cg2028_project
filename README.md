@@ -46,7 +46,7 @@ The program executes correctly, returning to `main()` as expected.
 - **Use Memory (RAM):**  
   Store additional values in global/static variables or dynamically allocated memory.
 - **Reuse Registers:**  
-  Identify registers that are no longer needed and overwrite them. Utilize shifting or rotating techniques to manage temporary values instead of allocating new registers.
+  Identify registers that are no longer needed and overwrite them. Utilise shifting or rotating techniques to manage temporary values instead of allocating new registers.
 
 ## Machine Code
 
@@ -68,7 +68,7 @@ This section details the modifications made to the single-cycle processor design
 A dedicated combinational multiplier that accepts two 32-bit inputs (`Mult_In_A` and `Mult_In_B`) and produces a 32-bit product (`Mult_Out_Product`) in a single cycle.
 
 - **Control Logic Enhancements:**  
-The Decoder is updated to recognize `MUL` and `MLA` opcodes and generate appropriate control signals (e.g., `MULControl`) to enable the multiplier unit.
+The Decoder is updated to recognise `MUL` and `MLA` opcodes and generate appropriate control signals (e.g., `MULControl`) to enable the multiplier unit.
 
 - **Data Path Adjustments:**  
 A multiplexer (MUX) is added before the Write Back stage to select either the ALU result or the multiplier output. For MLA instructions, the multiplier output is added to an additional operand (`Rn`) using the ALU before write-back.
@@ -80,7 +80,7 @@ The Register File provides operands to both the ALU and the multiplier. For MLA 
 
 ## Discussion of Improvements Made to Enhance Efficiency
 
-Several strategies have been implemented to optimize the code:
+Several strategies have been implemented to optimise the code:
 
 - **Reusing Registers:**  
 Registers such as R4, R5, and R6 are reused throughout the code when they are no longer needed, reducing the overhead of extra register allocation.
