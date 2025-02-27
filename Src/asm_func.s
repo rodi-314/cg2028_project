@@ -30,13 +30,14 @@
 
 @ Constants
 .equ ENTRY_LEN, 5     @ Length of entry array
-.equ SECTION_MAX 12   @ Maximum size of section
+.equ SECTION_MAX, 12   @ Maximum size of section
 
 @ Usage of Registers
-@ R4: Entry value, section value
-@ R5: Entry counter
+@ R4: Entry value, section cars
+@ R5: Entry counter, vacancy value
 @ R6: Total cars entered
 @ R8: Pointer to R3
+@ R9: Temporary value
 
 
 asm_func:
@@ -54,10 +55,27 @@ asm_func:
 	    BNE SUM_ENTRIES
 
 	@ Continue adding cars entered until no cars left
-	MOV R8, R3
+	MOV R8, R0
 	ADD_ENTRIES:
-		LDR R4, [R3], #4 @ Load value from R3 into R8 and increment R8 by 4 (pointing to building[][])
-		SUB CMP R6, #0
+		LDR R4, [R8], #4 @ Load value from R3 into R8 and increment R8 by 4 (pointing to building[][])
+		SUBS R5, R4, #12 @ Get vacancy for section
+		NEG R5, R5
+
+	    CMP R6, R5       @ Compare R6 with R5
+    	BGT THEN_BLOCK   @ If R6 > R5, branch to THEN_BLOCK
+    	B ELSE_BLOCK     @ If R5 >= R6, branch to ELSE_BLOCK
+
+	    THEN_BLOCK:
+	    	MOV R9, SECTION_MAX
+	    	LDR R9, [R8]
+	    	SUB R6, R5
+	    	B ADD_ENTRIES
+	    ELSE_BLOCK:
+	    	LDR R6, [R8], #4
+	    	MOV R6, #0
+
+
+		CMP R6, #0
 		BNE ADD_ENTRIES
 
 
