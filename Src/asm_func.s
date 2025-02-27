@@ -17,8 +17,8 @@
 @ CG/[T]EE2028 Assignment 1, Sem 2, AY 2024/25
 @ (c) ECE NUS, 2025
 
-@ Write Student 1’s Name here:
-@ Write Student 2’s Name here:
+@ Write Student 1’s Name here: Roderick Kong Zhang
+@ Write Student 2’s Name here: Gandhi Kishen
 
 @ Look-up table for registers:
 
@@ -28,8 +28,42 @@
 
 @ write your program from here:
 
+@ Constants
+.equ ENTRY_LEN, 5     @ Length of entry array
+.equ SECTION_MAX 12   @ Maximum size of section
+
+@ Usage of Registers
+@ R4: Entry value, section value
+@ R5: Entry counter
+@ R6: Total cars entered
+@ R8: Pointer to R3
+
+
 asm_func:
-    PUSH {LR}          @ Save return address
+    PUSH {LR}               @ Save return address
+
+    MOV R5, #0              @ Initialise total cars entered to 0
+    MOV R6, #0              @ Initialise entry counter to 0
+
+	@ Get total cars entered
+    SUM_ENTRIES:
+	    LDR R4, [R1], #4    @ Load value from R1 into R4 and increment R1 by 4 (pointing to entries[])
+	    ADD R6, R4          @ Add R4 to total cars entered
+	    ADD R5, #1          @ Increment loop counter
+	    CMP R5, ENTRY_LEN   @ Repeat until all 5 entries are summed
+	    BNE SUM_ENTRIES
+
+	@ Continue adding cars entered until no cars left
+	MOV R8, R3
+	ADD_ENTRIES:
+		LDR R4, [R3], #4 @ Load value from R3 into R8 and increment R8 by 4 (pointing to building[][])
+		SUB CMP R6, #0
+		BNE ADD_ENTRIES
+
+
+	MOV R5, #0         @ Use R5 to store total cars entered
+    ADD R5, R4         @ Add value of entry to total cars entered
+    ADD R4, #4         @ Increment R4 to point to next element of entry[]
 
     MOV R0, #8         @ Zero value to store
 
