@@ -34,6 +34,8 @@
 @ R10: Store F*S (length of building[][])
 @ R11: Vacancy value
 
+@ write your program from here:
+
 @ Constants
 .equ ENTRY_LEN, 5            @ Length of entry array
 .equ SECTION_MAX, 12         @ Maximum size of section
