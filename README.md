@@ -7,7 +7,6 @@ This group project was completed as part of the CG2028 Computer Organisation cou
 1. [Machine Code](#machine-code)
 1. [Microarchitecture Design](#microarchitecture-design)
 1. [Discussion of Improvements Made to Enhance Efficiency](#discussion-of-improvements-made-to-enhance-efficiency)
-1. [Appendix: Contributions](#appendix-contributions)
 
 ## Assignment Questions
 
