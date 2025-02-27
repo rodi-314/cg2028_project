@@ -3,13 +3,11 @@
 This group project was completed as part of the CG2028 Computer Organisation course taught at the National University of Singapore (NUS). For this project, we are required to code out an assembly function to solve a carpark assignment problem. The main C program calls the assembly function, which then returns the result in the array specified by the pointer. For more details, view the full report [here](Documents/Assignment1_51_A0286550Y_A0266842W_Report.pdf).
 
 ## Table of Contents
-
-1. [Discussion of Program Logic](#discussion-of-program-logic)
-2. [Assignment Questions](#assignment-questions)
-3. [Machine Code](#machine-code)
-4. [Microarchitecture Design](#microarchitecture-design)
-5. [Discussion of Improvements Made to Enhance Efficiency](#discussion-of-improvements-made-to-enhance-efficiency)
-6. [Appendix: Contributions](#appendix-contributions)
+1. [Assignment Questions](#assignment-questions)
+1. [Machine Code](#machine-code)
+1. [Microarchitecture Design](#microarchitecture-design)
+1. [Discussion of Improvements Made to Enhance Efficiency](#discussion-of-improvements-made-to-enhance-efficiency)
+1. [Appendix: Contributions](#appendix-contributions)
 
 ## Assignment Questions
 
@@ -19,10 +17,7 @@ This group project was completed as part of the CG2028 Computer Organisation cou
   How to calculate the memory address of element `building[A][B]` (with floor index `A` and section index `B`, where indices start at 0)?
 
 - **Answer:**  
-  The memory address is given by the equation:
-  memory address of building[A][B] = address of building + 4 * (A * S + B)
-
-  where `S` is the number of sections.
+  The memory address is given by the equation: memory address of building[A][B] = address of building + 4 * (A * S + B), where `S` is the number of sections.
 
 ### 2. Function Return Observations
 
