@@ -21,6 +21,9 @@ This group project was completed as part of the CG2028 Computer Organisation cou
 
 ### 2. Function Return Observations
 
+- **Question:**  
+  Describe what you observe in (i) and (ii) and explain why there is a difference. (i) is when the `PUSH {R14}` and `POP {R14}` lines are commented and (ii) is when they are uncommented.
+
 - **Observation (i):**  
 The function does not return correctly to `main()`, possibly leading to a segmentation fault or unexpected results.
 
@@ -34,6 +37,9 @@ The program executes correctly, returning to `main()` as expected.
   Saving and restoring `R14` ensures that the correct return address is preserved, so `BX LR` correctly transfers control back to `main()`.
 
 ### 3. Handling Exhaustion of General Purpose Registers
+
+- **Question:**  
+  What can you do if you have used up all the general purpose registers and you need to store some more values during processing?
 
 - **Solutions:**
 - **Use the Stack (PUSH & POP):**  
@@ -83,5 +89,5 @@ Registers such as R4, R5, and R6 are reused throughout the code when they are no
 - **Storing Intermediate Values:**  
 Temporary values are stored in registers to avoid redundant computations, which enhances performance.
 
-- **Optimized Pointer Usage:**  
-Instead of creating multiple pointers for array traversal, existing pointers are efficiently reused to iterate through arrays, minimizing additional register usage.
+- **Optimised Pointer Usage:**  
+Instead of creating multiple pointers for array traversal, existing pointers are efficiently reused to iterate through arrays, minimising additional register usage.
